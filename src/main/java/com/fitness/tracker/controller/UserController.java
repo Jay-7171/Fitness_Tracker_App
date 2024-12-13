@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
-
+    @GetMapping
+    public ResponseEntity<String> getReponse(){
+        return new ResponseEntity<>("Welcome",HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User createdUser = userService.createUser(user);
